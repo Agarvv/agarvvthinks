@@ -2,7 +2,8 @@ use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
 use dotenvy::dotenv;
 use std::env;
 use sea_orm::{Database, DatabaseConnection};
-use ;
+mod routes;
+use routes::health::health; 
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
@@ -13,7 +14,7 @@ async fn main() -> std::io::Result<()> {
     HttpServer::new(move || {
         App::new()
             .app_data(web::Data::new(db.clone()))
-            .service(hello)
+            .service(health)
     })
     .bind(("127.0.0.1", 8080))?
     .run()
@@ -24,4 +25,3 @@ async fn main() -> std::io::Result<()> {
 async fn hello() -> impl Responder {
     HttpResponse::Ok().body("Hello world!")
 }
-
