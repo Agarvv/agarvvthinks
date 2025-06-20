@@ -3,7 +3,8 @@ use dotenvy::dotenv;
 use std::env;
 use sea_orm::{Database, DatabaseConnection};
 mod routes;
-use routes::health::health; 
+use routes::configure;
+
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
@@ -14,7 +15,7 @@ async fn main() -> std::io::Result<()> {
     HttpServer::new(move || {
         App::new()
             .app_data(web::Data::new(db.clone()))
-            .service(health)
+            .configure(routes::configure)
     })
     .bind(("127.0.0.1", 8080))?
     .run()
