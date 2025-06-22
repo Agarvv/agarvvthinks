@@ -1,3 +1,3 @@
 
 #[path = "health/health.rs"]
-mod health; 
+pub mod health; 

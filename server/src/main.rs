@@ -3,7 +3,8 @@ use dotenvy::dotenv;
 use std::env;
 use sea_orm::{Database, DatabaseConnection};
 mod routes;
-use routes::configure;
+pub mod handlers;
+
 
 
 #[actix_web::main]
