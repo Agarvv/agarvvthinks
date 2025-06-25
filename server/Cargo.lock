@@ -2530,6 +2530,7 @@ dependencies = [
  "actix-rt",
  "actix-web",
  "dotenvy",
+ "rand 0.8.5",
  "sea-orm",
  "sea-orm-macros",
  "serde",
