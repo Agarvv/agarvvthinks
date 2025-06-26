@@ -7,7 +7,7 @@ use sea_orm::{Database};
 pub mod routes;
 pub mod handlers;
 pub mod services;
-
+pub mod entities; 
 
 
 #[actix_web::main]
